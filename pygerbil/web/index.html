@@ -13085,13 +13085,13 @@ div#notebook {
     </a>
   </div>
 </div>
-<p>PyGERBIL is a Python wrapper of GERBIL that offers API for experiment configuration, testing, and execution, as well as a simple GERBIL-compatible web server running on Flask. For more information, including how to install PyGERBIL, visit the probject's GitHub repository at <a href="https://github.com/rungsiman/pygerbil">rungsiman/pygerbil</a>.</p><p>In this demo, we are going to build a custom annotator for <i>A2KB</i> task and test it against DBpedia Spotlight annotator on GERBIL server. Our annotator sends any texts it received to official DBpedia Spotlight annotator for tagging. DBpedia Spotlight provides a REST API that supports several response formats (try <a href="https://www.dbpedia-spotlight.org/api">DBpedia Spotlight API</a> to get a glimpse of what the API returns).</p><p>Every PyGERBIL templates in <mark><i>pygerbil.experiments</i></mark> package accepts callback functions that input <mark><i>GerbilNIFCollection</i></mark> and a text, then produce an annotated <mark><i>GerbilNIFCollection</i></mark>. The templates first create <mark><i>GerbilNIFCollection</i></mark> and initialize its context (issued by GERBIL), then call any given callback functions and compile <mark><i>GerbilNIFCollection</i></mark> outputs into NIF documents before sending them back to the web server.</p>
+<p>PyGERBIL is a Python wrapper of GERBIL that offers API for experiment configuration, testing, and execution, as well as a simple GERBIL-compatible web server running on Flask. For more information, including how to setup PyGERBIL, visit the probject's GitHub repository at <a href="https://github.com/rungsiman/pygerbil">rungsiman/pygerbil</a>.</p><p>In this demo, we are going to build a custom annotator for <i>A2KB</i> task and test it against DBpedia Spotlight annotator on GERBIL server. Our annotator sends any texts it received to official DBpedia Spotlight annotator for tagging. DBpedia Spotlight provides a REST API that supports several response formats (try <a href="https://www.dbpedia-spotlight.org/api">DBpedia Spotlight API</a> to get a glimpse of what the API returns).</p><p>Every PyGERBIL templates in <mark><i>pygerbil.experiments</i></mark> package accepts callback functions that input <mark><i>GerbilNIFCollection</i></mark> and a text, then produce an annotated <mark><i>GerbilNIFCollection</i></mark>. The templates first create <mark><i>GerbilNIFCollection</i></mark> and initialize its context (issued by GERBIL), then call any given callback functions and compile <mark><i>GerbilNIFCollection</i></mark> outputs into NIF documents before sending them back to the web server.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
@@ -13162,11 +13162,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">GERBIL_ENDPOINT</span> <span class="o">=</span> <span class="s1">&#39;http://gerbil.aksw.org/gerbil&#39;</span>
-<span class="n">HANDLER_ENDPOINT</span> <span class="o">=</span> <span class="s1">&#39;http://ec2-18-176-236-209.ap-northeast-1.compute.amazonaws.com&#39;</span>
+<span class="n">HANDLER_ENDPOINT</span> <span class="o">=</span> <span class="s1">&#39;http://ec2-18-179-56-1.ap-northeast-1.compute.amazonaws.com&#39;</span>
 </pre></div>
 
     </div>
@@ -13191,7 +13191,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a2kb</span> <span class="o">=</span> <span class="n">A2KB</span><span class="p">(</span><span class="n">gerbil</span><span class="o">=</span><span class="n">GERBIL_ENDPOINT</span><span class="p">,</span>
@@ -13216,7 +13216,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2019-11-23 20:41:54,471 - root - INFO - Registered experiment handler with ID: 7b937e476b153b705145fe925976e7094968c1afba6b3fb7c3c8b0d4f4444ae6
+<pre>2019-11-24 09:16:07,883 - INFO - Registered experiment handler with ID: 6e7db884c50d0197127025dcd2d7de1e65ae6860c8d2cdc196ce25dddb0d6e9d
 </pre>
 </div>
 </div>
@@ -13235,7 +13235,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a2kb</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
@@ -13255,15 +13255,15 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2019-11-23 20:41:54,477 - root - INFO - Initializing test
-2019-11-23 20:41:57,440 - root - INFO - Test passed
+<pre>2019-11-24 09:16:07,889 - INFO - Initializing test
+2019-11-24 09:16:10,624 - INFO - Test passed
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13288,7 +13288,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a2kb</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
@@ -13308,80 +13308,80 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text" style="height: 300px; overflow: scroll;">
-<pre>2019-11-23 20:41:57,456 - root - INFO - Executing experiment
-2019-11-23 20:41:57,758 - root - INFO - Experiment started with ID: 201911230017
-2019-11-23 20:41:57,863 - root - INFO - Processing [spotlight]: In a sense it’s an improvement on “Rebirth,” even if a couple of the songs bear the scars of that period, particularly the Rick Rubinesque title track, and “Popular,” which has some of the new wave sizzle he was toying with.
-2019-11-23 20:41:59,855 - root - INFO - Processing [spotlight]: Prokhorov said the visit would serve as a cornerstone for future interaction between players and coaches from the Nets and young Russians, with the aim of developing basketball in Russia, where the sport is a distant third in popularity behind soccer and hockey.
-2019-11-23 20:42:01,685 - root - INFO - Processing [spotlight]: The only accident, engineers said, was when one Google car was rear-ended while stopped at a traffic light.
-2019-11-23 20:42:03,326 - root - INFO - Processing [spotlight]: On the front lawn we lingered in front of his work-in-progress: a fiberglass sauna shaped like a garlic clove, one of five Finnish bathhouses that will be on display in SaunaLab, an exhibition at Turku 2011, the coming yearlong culture festival.
-2019-11-23 20:42:05,329 - root - INFO - Processing [spotlight]: During warmer months, a casual passer-by without a ticket to the night’s performance can enjoy a cappuccino with the dance aficionados on the waterfront terrace, but the main draw is the celebrated Ms. Waltz and her dancers, interlocked in twisted, shifting embraces.
-2019-11-23 20:42:07,115 - root - INFO - Processing [spotlight]: One even drove itself down Lombard Street in San Francisco, one of the steepest and curviest streets in the nation.
-2019-11-23 20:42:09,062 - root - INFO - Processing [spotlight]: The stay was just long enough for a little practice and an exhibition in which the Nets were interspersed on the court with top players from youth leagues across Russia — some as young as 8 years old — for a light-hearted game in the arena of CSKA Moscow, the professional Russian club Prokhorov once owned.
-2019-11-23 20:42:10,866 - root - INFO - Processing [spotlight]: Radialsystem V, miles away from the German capital’s grand boulevard of Unter den Linden, is surrounded by a cluster of gritty nightclubs near the Ostbahnhof train station.
-2019-11-23 20:42:12,664 - root - INFO - Processing [spotlight]: Its narrative goes something like this: After the exhausting nightmare of World War I, Europe’s early modernist vanguard backed away from disruptive experimental styles like Cubism and Futurism.
-2019-11-23 20:42:14,675 - root - INFO - Processing [spotlight]: His father had a heart ailment, his mother had dizzy spells and nausea, and both were worried about Alzheimer’s disease and cancer.
-2019-11-23 20:42:16,425 - root - INFO - Processing [spotlight]: But with age and the growing acceptance of medical marijuana, his parents were curious.
-2019-11-23 20:42:18,350 - root - INFO - Processing [spotlight]: New research finds that gossiping can be good for you — as long as you have something nice to say.
-2019-11-23 20:42:20,032 - root - INFO - Processing [spotlight]: But it seems the greater pleasure comes from more temperate gossip.
-2019-11-23 20:42:21,753 - root - INFO - Processing [spotlight]: It failed less for its experimentation, which was spotty, than for the strenuousness with which he pursued it.
-2019-11-23 20:42:30,077 - root - INFO - Processing [spotlight]: I found the whole thing totally engrossing: a survey-style piece of investigative history with a bomb ticking away inside.
-2019-11-23 20:42:31,965 - root - INFO - Processing [spotlight]: “Rebirth,” the last album he released before he began serving a one-year jail sentence at Rikers Island, was his quixotic attempt at a rap-rock album, an out-of-date idea that he treated like aggressive scientific research.
-2019-11-23 20:42:33,643 - root - INFO - Processing [spotlight]: But the alarmists have not seen anything yet.
-2019-11-23 20:42:35,393 - root - INFO - Processing [spotlight]: Inside, it’s even wackier: curved walls, windows in the shape of teardrops, and a catwalk with a tiny video screen embedded in the floor that shows an endless loop of antlike commuters rushing through Grand Central Terminal in New York.
-2019-11-23 20:42:37,442 - root - INFO - Processing [spotlight]: Worries over Internet privacy have spurred lawsuits, conspiracy theories and consumer anxiety as marketers and others invent new ways to track computer users on the Internet.
-2019-11-23 20:42:39,253 - root - INFO - Processing [spotlight]: Harder to notice was that the person at the wheel was not actually driving.
-2019-11-23 20:42:41,164 - root - INFO - Processing [spotlight]: “LIFE ON A LEAF,” a whimsical yellow house that sits in a wooded park at the edge of Turku in southern Finland, is a lopsided construction with a bright red, blue and green roof and a leaf-shaped floor plan.
-2019-11-23 20:42:42,849 - root - INFO - Processing [spotlight]: A tall dancer feigns clumsiness with a slyly graceful gawkiness that would do Buster Keaton proud, stumbling around a ladder and a chair to the delight of the audience.
-2019-11-23 20:42:44,668 - root - INFO - Processing [spotlight]: Anyone driving the twists of Highway 1 between San Francisco and Los Angeles recently may have glimpsed a Toyota Prius with a curious funnel-like cylinder on the roof.
-2019-11-23 20:42:46,605 - root - INFO - Processing [spotlight]: The short, bearded man in the tutu wanders onstage, an accordion strapped to his back like a rucksack.
-2019-11-23 20:42:48,274 - root - INFO - Processing [spotlight]: They looked at some research and decided marijuana was worth a try.
-2019-11-23 20:42:50,155 - root - INFO - Processing [spotlight]: In the first study, intended to measure a person’s short-term emotional reaction to gossiping, 140 men and women, primarily undergraduates, were asked to talk about a fictional person either positively or negatively.
-2019-11-23 20:42:51,823 - root - INFO - Processing [spotlight]: Bryan, 46, a writer who lives in Illinois, began supplying his parents about five years ago, after he told them about his own marijuana use.
-2019-11-23 20:42:53,839 - root - INFO - Processing [spotlight]: Over seared scallops and beef tenderloin, Treasury Secretary Timothy F. Geithner urged his counterparts from Europe, Canada and Japan to help persuade China to let its currency, the renminbi, rise in value — a crucial element in redressing the trade imbalances that are threatening recovery around the world.
-2019-11-23 20:42:55,706 - root - INFO - Processing [spotlight]: If the Nets pick up a strong Russian fan base in the process, that would be nice, too, he said.
-2019-11-23 20:42:57,667 - root - INFO - Processing [spotlight]: To the rites of middle-age passage, some families are adding another: buying marijuana for aging parents.
-2019-11-23 20:42:59,414 - root - INFO - Processing [spotlight]: To some degree recuperative conservatism worked; it gave artists a way to keep moving when an old way seemed blocked.
-2019-11-23 20:43:01,319 - root - INFO - Processing [spotlight]: At a private dinner on Friday at the Canadian Embassy, finance officials from seven world economic powers focused on the most vexing international economic problem facing the Obama administration.
-2019-11-23 20:43:03,349 - root - INFO - Processing [spotlight]: They retreated to traditional forms and looked back to an imagined classical past — ancient Greece, the Italian Renaissance — for images of wholeness and harmony.
-2019-11-23 20:43:05,118 - root - INFO - Processing [spotlight]: Boilerplate is safe box office, and we’ve gotten our share lately.
-2019-11-23 20:43:06,902 - root - INFO - Processing [spotlight]: In a presentation in September, Jennifer Cole, a social psychologist, and Hannah Scrivener reported results from two related studies, both of which demonstrate that it’s in one’s self-interest to say “So-and-so’s second husband is adorable” rather than “She married that lout?”
-2019-11-23 20:43:08,539 - root - INFO - Processing [spotlight]: Nearly everyone who uses the Internet will face the privacy risks that come with those capabilities, which are an integral part of the Web language that will soon power the Internet: HTML 5.
-2019-11-23 20:43:10,204 - root - INFO - Processing [spotlight]: (He was jailed on a gun-possession charge.)
-2019-11-23 20:43:12,213 - root - INFO - Processing [spotlight]: Jan-Erik Andersson — the artist, sculptor and interior designer who, with contributions from 20 other artists, created the place, and gives tours to groups of visitors who make arrangements in advance — was waiting for me.
-2019-11-23 20:43:14,195 - root - INFO - Processing [spotlight]: In the next few years, a powerful new suite of capabilities will become available to Web developers that could give marketers and advertisers access to many more details about computer users’ online activities.
-2019-11-23 20:43:16,173 - root - INFO - Processing [spotlight]: From somewhere among those recording sessions, and those rumored to be slated for “Tha Carter IV,” his next album, came the songs found on “I Am Not a Human Being,” an uncentered collection of odds and ends meant to sate interest until Lil Wayne’s release from Rikers, which is expected to be early next month.
-2019-11-23 20:43:17,827 - root - INFO - Processing [spotlight]: With someone behind the wheel to take control if something goes awry and a technician in the passenger seat to monitor the navigation system, seven test cars have driven 1,000 miles without human intervention and more than 140,000 miles with only occasional human control.
-2019-11-23 20:43:19,488 - root - INFO - Processing [spotlight]: “Welcome to Russia,” Prokhorov said as he greeted his players during their first trip to a country he hopes will become a kind of second home for the team — as well as a source of wealthy sponsors.
-2019-11-23 20:43:21,246 - root - INFO - Processing [spotlight]: On an unseasonably warm September morning I traveled to the Leaf house, which has become something of a local landmark, passing Turku’s harbor overlooked by pine-forested hills, then turning into a clearing in the woods.
-2019-11-23 20:43:29,541 - root - INFO - Processing [spotlight]: But the next afternoon, the annual meetings of the International Monetary Fund ended with a tepid statement that made only fleeting and indirect references to the simmering currency tensions.
-2019-11-23 20:43:31,297 - root - INFO - Processing [spotlight]: Even though Berliners know about the dance troupe, visitors often miss its frequently sold-out performances in the towering space of the former machine hall and boiler room of the pumping station.
-2019-11-23 20:43:33,074 - root - INFO - Processing [spotlight]: The car is a project of Google, which has been working in secret but in plain view on vehicles that can drive themselves, using artificial-intelligence software that can sense anything near the car and mimic the decisions made by a human driver.
-2019-11-23 20:43:35,056 - root - INFO - Processing [spotlight]: Sasha Waltz &amp; Guests (pictured), named for its choreographer, is the house dance ensemble at Radialsystem V (Holzmarktstr, 33; radialsystem.de), a performance space that opened in 2006 in an old brick Gothic pumping station on the Spree River in Berlin.
-2019-11-23 20:43:37,115 - root - INFO - Processing [spotlight]: “We would have grounded him,” said his mother, who is 72.
-2019-11-23 20:43:39,074 - root - INFO - Processing [spotlight]: The second study, which looked into the long-term effects of gossiping on well-being, had 160 participants, mostly female undergrads, fill out questionnaires about their tendency to gossip, their self-esteem and their perceived social support.
-2019-11-23 20:43:40,858 - root - INFO - Processing [spotlight]: When he was growing up, he said, his parents were very strict about illegal drugs.
-2019-11-23 20:43:42,834 - root - INFO - Processing [spotlight]: “IF you can’t say something good about someone, sit right here by me,” Alice Roosevelt Longworth, a self-proclaimed “hedonist,” used to say.
-2019-11-23 20:43:44,478 - root - INFO - Processing [spotlight]: The Nets dropped into Moscow on Sunday for a one-day visit meant to raise their profile in the home country of their new owner, the Russian billionaire Mikhail D. Prokhorov.
-2019-11-23 20:43:46,277 - root - INFO - Processing [spotlight]: At the same time classicism as an ideology, with its emphasis on order, purity and exclusion, was being espoused by rising political figures intent on creating a new, lethally exclusionary social order.
-2019-11-23 20:43:48,301 - root - INFO - Processing [spotlight]: Visitors with a stake in art-as-uplift will find the story it tells mystifying, if not perverse.
-2019-11-23 20:43:50,037 - root - INFO - Processing [spotlight]: Lil Wayne’s least interesting mode is fixation. Restless and free-associative, he’s best when bouncing from one idea to the next, sticking around just long enough to master it, then splitting before boredom or self-consciousness sets in.
-2019-11-23 20:43:58,062 - root - INFO - Processing [spotlight]: So it’s great that the Guggenheim Museum is giving us the opposite in its major fall exhibition, “Chaos and Classicism: Art in France, Italy, and Germany, 1918-1936.” With its high percentage of unfamiliar names, the exhibition won’t pull crowds.
-2019-11-23 20:43:59,910 - root - INFO - Processing [spotlight]: It will make it easier for users to view multimedia content without downloading extra software; check e-mail offline; or find a favorite restaurant or shop on a smartphone.
-2019-11-23 20:44:01,560 - root - INFO - Processing [spotlight]: The new Web code, the fifth version of Hypertext Markup Language used to create Web pages, is already in limited use, and it promises to usher in a new era of Internet browsing within the next few years.
-2019-11-23 20:44:05,164 - root - INFO - Experiment finished
+<pre>2019-11-24 09:16:10,638 - INFO - Executing experiment
+2019-11-24 09:16:10,959 - INFO - Experiment started with ID: 201911240002
+2019-11-24 09:16:11,065 - INFO - Processing [spotlight]: In a sense it’s an improvement on “Rebirth,” even if a couple of the songs bear the scars of that period, particularly the Rick Rubinesque title track, and “Popular,” which has some of the new wave sizzle he was toying with.
+2019-11-24 09:16:12,802 - INFO - Processing [spotlight]: Prokhorov said the visit would serve as a cornerstone for future interaction between players and coaches from the Nets and young Russians, with the aim of developing basketball in Russia, where the sport is a distant third in popularity behind soccer and hockey.
+2019-11-24 09:16:14,555 - INFO - Processing [spotlight]: The only accident, engineers said, was when one Google car was rear-ended while stopped at a traffic light.
+2019-11-24 09:16:16,297 - INFO - Processing [spotlight]: On the front lawn we lingered in front of his work-in-progress: a fiberglass sauna shaped like a garlic clove, one of five Finnish bathhouses that will be on display in SaunaLab, an exhibition at Turku 2011, the coming yearlong culture festival.
+2019-11-24 09:16:18,101 - INFO - Processing [spotlight]: During warmer months, a casual passer-by without a ticket to the night’s performance can enjoy a cappuccino with the dance aficionados on the waterfront terrace, but the main draw is the celebrated Ms. Waltz and her dancers, interlocked in twisted, shifting embraces.
+2019-11-24 09:16:20,086 - INFO - Processing [spotlight]: One even drove itself down Lombard Street in San Francisco, one of the steepest and curviest streets in the nation.
+2019-11-24 09:16:21,884 - INFO - Processing [spotlight]: The stay was just long enough for a little practice and an exhibition in which the Nets were interspersed on the court with top players from youth leagues across Russia — some as young as 8 years old — for a light-hearted game in the arena of CSKA Moscow, the professional Russian club Prokhorov once owned.
+2019-11-24 09:16:23,589 - INFO - Processing [spotlight]: Radialsystem V, miles away from the German capital’s grand boulevard of Unter den Linden, is surrounded by a cluster of gritty nightclubs near the Ostbahnhof train station.
+2019-11-24 09:16:25,386 - INFO - Processing [spotlight]: Its narrative goes something like this: After the exhausting nightmare of World War I, Europe’s early modernist vanguard backed away from disruptive experimental styles like Cubism and Futurism.
+2019-11-24 09:16:27,142 - INFO - Processing [spotlight]: His father had a heart ailment, his mother had dizzy spells and nausea, and both were worried about Alzheimer’s disease and cancer.
+2019-11-24 09:16:28,945 - INFO - Processing [spotlight]: But with age and the growing acceptance of medical marijuana, his parents were curious.
+2019-11-24 09:16:30,632 - INFO - Processing [spotlight]: New research finds that gossiping can be good for you — as long as you have something nice to say.
+2019-11-24 09:16:32,315 - INFO - Processing [spotlight]: But it seems the greater pleasure comes from more temperate gossip.
+2019-11-24 09:16:34,317 - INFO - Processing [spotlight]: It failed less for its experimentation, which was spotty, than for the strenuousness with which he pursued it.
+2019-11-24 09:16:36,073 - INFO - Processing [spotlight]: I found the whole thing totally engrossing: a survey-style piece of investigative history with a bomb ticking away inside.
+2019-11-24 09:16:37,838 - INFO - Processing [spotlight]: “Rebirth,” the last album he released before he began serving a one-year jail sentence at Rikers Island, was his quixotic attempt at a rap-rock album, an out-of-date idea that he treated like aggressive scientific research.
+2019-11-24 09:16:39,504 - INFO - Processing [spotlight]: But the alarmists have not seen anything yet.
+2019-11-24 09:16:41,179 - INFO - Processing [spotlight]: Inside, it’s even wackier: curved walls, windows in the shape of teardrops, and a catwalk with a tiny video screen embedded in the floor that shows an endless loop of antlike commuters rushing through Grand Central Terminal in New York.
+2019-11-24 09:16:42,981 - INFO - Processing [spotlight]: Worries over Internet privacy have spurred lawsuits, conspiracy theories and consumer anxiety as marketers and others invent new ways to track computer users on the Internet.
+2019-11-24 09:16:50,963 - INFO - Processing [spotlight]: Harder to notice was that the person at the wheel was not actually driving.
+2019-11-24 09:16:52,725 - INFO - Processing [spotlight]: “LIFE ON A LEAF,” a whimsical yellow house that sits in a wooded park at the edge of Turku in southern Finland, is a lopsided construction with a bright red, blue and green roof and a leaf-shaped floor plan.
+2019-11-24 09:16:54,448 - INFO - Processing [spotlight]: A tall dancer feigns clumsiness with a slyly graceful gawkiness that would do Buster Keaton proud, stumbling around a ladder and a chair to the delight of the audience.
+2019-11-24 09:16:56,118 - INFO - Processing [spotlight]: Anyone driving the twists of Highway 1 between San Francisco and Los Angeles recently may have glimpsed a Toyota Prius with a curious funnel-like cylinder on the roof.
+2019-11-24 09:16:57,906 - INFO - Processing [spotlight]: The short, bearded man in the tutu wanders onstage, an accordion strapped to his back like a rucksack.
+2019-11-24 09:16:59,704 - INFO - Processing [spotlight]: They looked at some research and decided marijuana was worth a try.
+2019-11-24 09:17:01,453 - INFO - Processing [spotlight]: In the first study, intended to measure a person’s short-term emotional reaction to gossiping, 140 men and women, primarily undergraduates, were asked to talk about a fictional person either positively or negatively.
+2019-11-24 09:17:03,213 - INFO - Processing [spotlight]: Bryan, 46, a writer who lives in Illinois, began supplying his parents about five years ago, after he told them about his own marijuana use.
+2019-11-24 09:17:05,006 - INFO - Processing [spotlight]: Over seared scallops and beef tenderloin, Treasury Secretary Timothy F. Geithner urged his counterparts from Europe, Canada and Japan to help persuade China to let its currency, the renminbi, rise in value — a crucial element in redressing the trade imbalances that are threatening recovery around the world.
+2019-11-24 09:17:06,834 - INFO - Processing [spotlight]: If the Nets pick up a strong Russian fan base in the process, that would be nice, too, he said.
+2019-11-24 09:17:08,616 - INFO - Processing [spotlight]: To the rites of middle-age passage, some families are adding another: buying marijuana for aging parents.
+2019-11-24 09:17:10,348 - INFO - Processing [spotlight]: To some degree recuperative conservatism worked; it gave artists a way to keep moving when an old way seemed blocked.
+2019-11-24 09:17:12,009 - INFO - Processing [spotlight]: At a private dinner on Friday at the Canadian Embassy, finance officials from seven world economic powers focused on the most vexing international economic problem facing the Obama administration.
+2019-11-24 09:17:13,830 - INFO - Processing [spotlight]: They retreated to traditional forms and looked back to an imagined classical past — ancient Greece, the Italian Renaissance — for images of wholeness and harmony.
+2019-11-24 09:17:15,511 - INFO - Processing [spotlight]: Boilerplate is safe box office, and we’ve gotten our share lately.
+2019-11-24 09:17:17,271 - INFO - Processing [spotlight]: In a presentation in September, Jennifer Cole, a social psychologist, and Hannah Scrivener reported results from two related studies, both of which demonstrate that it’s in one’s self-interest to say “So-and-so’s second husband is adorable” rather than “She married that lout?”
+2019-11-24 09:17:19,159 - INFO - Processing [spotlight]: Nearly everyone who uses the Internet will face the privacy risks that come with those capabilities, which are an integral part of the Web language that will soon power the Internet: HTML 5.
+2019-11-24 09:17:20,976 - INFO - Processing [spotlight]: (He was jailed on a gun-possession charge.)
+2019-11-24 09:17:22,959 - INFO - Processing [spotlight]: Jan-Erik Andersson — the artist, sculptor and interior designer who, with contributions from 20 other artists, created the place, and gives tours to groups of visitors who make arrangements in advance — was waiting for me.
+2019-11-24 09:17:25,474 - INFO - Processing [spotlight]: In the next few years, a powerful new suite of capabilities will become available to Web developers that could give marketers and advertisers access to many more details about computer users’ online activities.
+2019-11-24 09:17:27,489 - INFO - Processing [spotlight]: From somewhere among those recording sessions, and those rumored to be slated for “Tha Carter IV,” his next album, came the songs found on “I Am Not a Human Being,” an uncentered collection of odds and ends meant to sate interest until Lil Wayne’s release from Rikers, which is expected to be early next month.
+2019-11-24 09:17:29,240 - INFO - Processing [spotlight]: With someone behind the wheel to take control if something goes awry and a technician in the passenger seat to monitor the navigation system, seven test cars have driven 1,000 miles without human intervention and more than 140,000 miles with only occasional human control.
+2019-11-24 09:17:31,234 - INFO - Processing [spotlight]: “Welcome to Russia,” Prokhorov said as he greeted his players during their first trip to a country he hopes will become a kind of second home for the team — as well as a source of wealthy sponsors.
+2019-11-24 09:17:32,946 - INFO - Processing [spotlight]: On an unseasonably warm September morning I traveled to the Leaf house, which has become something of a local landmark, passing Turku’s harbor overlooked by pine-forested hills, then turning into a clearing in the woods.
+2019-11-24 09:17:34,750 - INFO - Processing [spotlight]: But the next afternoon, the annual meetings of the International Monetary Fund ended with a tepid statement that made only fleeting and indirect references to the simmering currency tensions.
+2019-11-24 09:17:36,381 - INFO - Processing [spotlight]: Even though Berliners know about the dance troupe, visitors often miss its frequently sold-out performances in the towering space of the former machine hall and boiler room of the pumping station.
+2019-11-24 09:17:38,201 - INFO - Processing [spotlight]: The car is a project of Google, which has been working in secret but in plain view on vehicles that can drive themselves, using artificial-intelligence software that can sense anything near the car and mimic the decisions made by a human driver.
+2019-11-24 09:17:39,905 - INFO - Processing [spotlight]: Sasha Waltz &amp; Guests (pictured), named for its choreographer, is the house dance ensemble at Radialsystem V (Holzmarktstr, 33; radialsystem.de), a performance space that opened in 2006 in an old brick Gothic pumping station on the Spree River in Berlin.
+2019-11-24 09:17:41,692 - INFO - Processing [spotlight]: “We would have grounded him,” said his mother, who is 72.
+2019-11-24 09:17:43,471 - INFO - Processing [spotlight]: The second study, which looked into the long-term effects of gossiping on well-being, had 160 participants, mostly female undergrads, fill out questionnaires about their tendency to gossip, their self-esteem and their perceived social support.
+2019-11-24 09:17:45,222 - INFO - Processing [spotlight]: When he was growing up, he said, his parents were very strict about illegal drugs.
+2019-11-24 09:17:47,003 - INFO - Processing [spotlight]: “IF you can’t say something good about someone, sit right here by me,” Alice Roosevelt Longworth, a self-proclaimed “hedonist,” used to say.
+2019-11-24 09:17:48,767 - INFO - Processing [spotlight]: The Nets dropped into Moscow on Sunday for a one-day visit meant to raise their profile in the home country of their new owner, the Russian billionaire Mikhail D. Prokhorov.
+2019-11-24 09:17:50,717 - INFO - Processing [spotlight]: At the same time classicism as an ideology, with its emphasis on order, purity and exclusion, was being espoused by rising political figures intent on creating a new, lethally exclusionary social order.
+2019-11-24 09:17:52,366 - INFO - Processing [spotlight]: Visitors with a stake in art-as-uplift will find the story it tells mystifying, if not perverse.
+2019-11-24 09:17:54,023 - INFO - Processing [spotlight]: Lil Wayne’s least interesting mode is fixation. Restless and free-associative, he’s best when bouncing from one idea to the next, sticking around just long enough to master it, then splitting before boredom or self-consciousness sets in.
+2019-11-24 09:17:56,032 - INFO - Processing [spotlight]: So it’s great that the Guggenheim Museum is giving us the opposite in its major fall exhibition, “Chaos and Classicism: Art in France, Italy, and Germany, 1918-1936.” With its high percentage of unfamiliar names, the exhibition won’t pull crowds.
+2019-11-24 09:17:57,838 - INFO - Processing [spotlight]: It will make it easier for users to view multimedia content without downloading extra software; check e-mail offline; or find a favorite restaurant or shop on a smartphone.
+2019-11-24 09:17:59,603 - INFO - Processing [spotlight]: The new Web code, the fifth version of Hypertext Markup Language used to create Web pages, is already in limited use, and it promises to usher in a new era of Internet browsing within the next few years.
+2019-11-24 09:18:02,386 - INFO - Experiment finished
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pygerbil.experiments.a2kb.A2KB at 0x7fd930f07fd0&gt;</pre>
+<pre>&lt;pygerbil.experiments.a2kb.A2KB at 0x7fa756d18080&gt;</pre>
 </div>
 
 </div>
@@ -13400,7 +13400,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a2kb</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">beautify</span><span class="p">())</span>
@@ -13420,15 +13420,15 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text" style="overflow: scroll;">
-<pre style="width: 3700px;">+----------+--------------------+------------------+--------------------+------------------+-------------------+----------------+------------------+-------------------+----------------+-----------------------+------------------------+---------------------+-----------------------+------------------------+---------------------+------------------+------------------------+---------------+---------------------+------------------+--------+
+<pre style="width:3700px;">+----------+--------------------+------------------+--------------------+------------------+-------------------+----------------+------------------+-------------------+----------------+-----------------------+------------------------+---------------------+-----------------------+------------------------+---------------------+------------------+------------------------+---------------+---------------------+------------------+--------+
 | Status   | Annotator          | Task             | Dataset            |   Micro F1 score |   Micro Precision |   Micro Recall |   Macro F1 score |   Macro Precision |   Macro Recall | InKB Macro F1 score   | InKB Macro Precision   | InKB Macro Recall   | InKB Micro F1 score   | InKB Micro Precision   | InKB Micro Recall   | avg millis/doc   |   confidence threshold |   Error Count | Timestamp           | GERBIL version   | Note   |
 |----------+--------------------+------------------+--------------------+------------------+-------------------+----------------+------------------+-------------------+----------------+-----------------------+------------------------+---------------------+-----------------------+------------------------+---------------------+------------------+------------------------+---------------+---------------------+------------------+--------|
 | Success  | DBpedia Spotlight  | DBpediaSpotlight |                    |           0.3543 |            0.681  |         0.2394 |           0.2941 |            0.4808 |         0.2327 | 0.2941                | 0.4808                 | 0.2327              | 0.3543                | 0.681                  | 0.2394              | 526.9455         |                      0 |             3 | 2019-11-22 03:31:00 | 1.2.7            |        |
 | Success  | DBpedia Spotlight  | DBpediaSpotlight | Entity Recognition |           0.435  |            0.8362 |         0.2939 |           0.3585 |            0.5899 |         0.2832 |                       |                        |                     |                       |                        |                     |                  |                      0 |             0 | 2019-11-22 03:31:00 | 1.2.7            |        |
 | Success  | DBpedia Spotlight  | DBpediaSpotlight | D2KB               |           0.3807 |            0.9294 |         0.2394 |           0.3122 |            0.602  |         0.2327 | 0.3122                | 0.602                  | 0.2327              | 0.3807                | 0.9294                 | 0.2394              |                  |                      0 |             0 | 2019-11-22 03:31:00 | 1.2.7            |        |
-| Success  | spotlight (NIF WS) | DBpediaSpotlight |                    |           0.3764 |            0.6772 |         0.2606 |           0.3181 |            0.5142 |         0.2545 | 0.3181                | 0.5142                 | 0.2545              | 0.3764                | 0.6772                 | 0.2606              | 2,164.3966       |                      0 |             0 | 2019-11-23 21:44:03 | 1.2.7            |        |
-| Success  | spotlight (NIF WS) | DBpediaSpotlight | Entity Recognition |           0.4639 |            0.8346 |         0.3212 |           0.3889 |            0.6325 |         0.3109 |                       |                        |                     |                       |                        |                     |                  |                      0 |             0 | 2019-11-23 21:44:03 | 1.2.7            |        |
-| Success  | spotlight (NIF WS) | DBpediaSpotlight | D2KB               |           0.4057 |            0.9149 |         0.2606 |           0.3387 |            0.6437 |         0.2545 | 0.3387                | 0.6437                 | 0.2545              | 0.4057                | 0.9149                 | 0.2606              |                  |                      0 |             0 | 2019-11-23 21:44:03 | 1.2.7            |        |
+| Success  | spotlight (NIF WS) | DBpediaSpotlight |                    |           0.3764 |            0.6772 |         0.2606 |           0.3181 |            0.5142 |         0.2545 | 0.3181                | 0.5142                 | 0.2545              | 0.3764                | 0.6772                 | 0.2606              | 1,901.569        |                      0 |             0 | 2019-11-24 10:18:01 | 1.2.7            |        |
+| Success  | spotlight (NIF WS) | DBpediaSpotlight | Entity Recognition |           0.4639 |            0.8346 |         0.3212 |           0.3889 |            0.6325 |         0.3109 |                       |                        |                     |                       |                        |                     |                  |                      0 |             0 | 2019-11-24 10:18:01 | 1.2.7            |        |
+| Success  | spotlight (NIF WS) | DBpediaSpotlight | D2KB               |           0.4057 |            0.9149 |         0.2606 |           0.3387 |            0.6437 |         0.2545 | 0.3387                | 0.6437                 | 0.2545              | 0.4057                | 0.9149                 | 0.2606              |                  |                      0 |             0 | 2019-11-24 10:18:01 | 1.2.7            |        |
 +----------+--------------------+------------------+--------------------+------------------+-------------------+----------------+------------------+-------------------+----------------+-----------------------+------------------------+---------------------+-----------------------+------------------------+---------------------+------------------+------------------------+---------------+---------------------+------------------+--------+
 </pre>
 </div>
