@@ -58,7 +58,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 ```
-To get started, visit a quick example of creating a custom DBpedia Spotlight annotator on [Jupitor](#)
+To get started, check out a quick example of how to create a custom DBpedia Spotlight annotator in this [Jupitor notebook](http://ec2-18-179-56-1.ap-northeast-1.compute.amazonaws.com)
 
 # Development
 PyGERBIL is still in its early development. It will be available on PyPi once it is more stable. All contributions are welcomed.
