@@ -1,7 +1,9 @@
 # PyGERBIL (Development)
+[![Build Status](https://travis-ci.org/rungsiman/pygerbil.svg?branch=master)](https://travis-ci.org/rungsiman/pygerbil)  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/rungsiman/pygerbil)
 PyGERBIL is a Python wrapper of [GERBIL](http://aksw.org/Projects/GERBIL.html) that offers API for experiment configuration, testing, and execution, as well as a simple GERBIL-compatible web server running on [Flask](https://www.palletsprojects.com/p/flask/). To test a newly created annotator, GERBIL requires a web server that consumes a series of texts in [NIF format](https://persistence.uni-leipzig.org/nlp2rdf/) and produces annotations, also in NIF format. PyGERBIL's lightweight web server acts as a middleware that manages communications between a GERBIL server and an annotator running locally. The local API streamlines the entire experimentation process into a few lines of code.
 
 # Demo
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m783868318-8f8eaca6a87fb7500f103a39?label=server%20status)
 Visit this [Jupyter notebook](http://ec2-18-179-56-1.ap-northeast-1.compute.amazonaws.com) for an example of how to build a custom annotator and execute an experiment with PyGERBIL. You can also use the server where the notebook is located to conduct try your own experiments. However, please keep in mind that this server is for demonstration only and may be terminated at any time.
 
 # Installation
