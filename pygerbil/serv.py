@@ -1,6 +1,7 @@
 import datetime
 import hashlib
 import json
+import os
 import random
 import requests
 import string
@@ -91,7 +92,8 @@ def _wait(checker: Callable[[], Any], duration: float = WAIT_CHECK_DURATION_SEC,
 
 @app.route('/', methods=['GET'])
 def status():
-    return jsonify({'status': 'active'})
+    with open('%s/web/index.html' % os.path.dirname(__file__), 'r') as f:
+        return Response(f.read())
 
 
 @app.route('/gerbil', methods=['POST'])

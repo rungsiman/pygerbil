@@ -2,18 +2,21 @@
 PyGERBIL is a Python wrapper of [GERBIL](http://aksw.org/Projects/GERBIL.html) that offers API for experiment configuration, testing, and execution, as well as a simple GERBIL-compatible web server running on [Flask](https://www.palletsprojects.com/p/flask/). To test a newly created annotator, GERBIL requires a web server that consumes a series of texts in [NIF format](https://persistence.uni-leipzig.org/nlp2rdf/) and produces annotations, also in NIF format. PyGERBIL's lightweight web server acts as a middleware that manages communications between a GERBIL server and an annotator running locally. The local API streamlines the entire experimentation process into a few lines of code.
 
 # Installation
+##### Client
 PyGERBIL can be installed directly from a GitHub repository using pip command:
 ```sh
 pip install git+https://github.com/rungsiman/pygerbil
 ```
 
-# Web Server
-PyGERBIL's lightweight web server can operate on a very limited machine such as [AWS t3a.nano](https://aws.amazon.com/ec2/instance-types/t3/). To start a server, type the following command:
+##### Web Server
+PyGERBIL's lightweight web server can operate on machines with very limited resources such as [AWS t3a.nano](https://aws.amazon.com/ec2/instance-types/t3/). To start a server, clone this repository then navigate to PyGERBIL package location and install packages from requirements.txt. Once all dependencies are insalled, find serv.py within the package and start the Flask web server.
 ```sh
+git clone https://github.com/rungsiman/pygerbil
+pip install -r requirements.txt
 env FLASK_APP=serv.py flask run
 ```
 
-# Client
+# Usage
 The experiment templates are available in `pygerbil.experiments`. To create an experiment, first import the template, then create a class instance. For example, the following code setups, tests, and executes an `A2KB` experiment:
 ```python
 from pygerbil.experiments.a2kb import A2KB
@@ -53,3 +56,6 @@ import logging
 logging.basicConfig(level=logging.INFO)
 ```
 To get started, visit a quick example of creating a custom DBpedia Spotlight annotator on [Jupitor](#)
+
+# Development
+PyGERBIL is still in its early development. It will be available on PyPi once it is more stable. All contributions are welcomed.
