@@ -15,11 +15,13 @@ def spotlight(collection: GerbilNIFCollection, text: str) -> GerbilNIFCollection
 
     return collection
 
-a2kb = A2KB(gerbil=GERBIL_ENDPOINT,
-            handler=HANDLER_ENDPOINT,
-            matching=A2KB.Matching.WEAK,
-            annotators=[A2KB.Annotators.DBpedia_Spotlight,
-                        spotlight],
-            datasets=[A2KB.Datasets.DBpediaSpotlight])
 
-a2kb.test()
+def test_client() -> None:
+    a2kb = A2KB(gerbil=GERBIL_ENDPOINT,
+                handler=HANDLER_ENDPOINT,
+                matching=A2KB.Matching.WEAK,
+                annotators=[A2KB.Annotators.DBpedia_Spotlight,
+                            spotlight],
+                datasets=[A2KB.Datasets.DBpediaSpotlight])
+
+    a2kb.test()
