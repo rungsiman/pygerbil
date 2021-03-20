@@ -7,7 +7,7 @@ greenlet==0.4.15
 idna==2.8
 isodate==0.6.0
 itsdangerous==1.1.0
-Jinja2==2.10.3
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 pynif==0.1.4
 pyparsing==2.4.5
